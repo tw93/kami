@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kami · Design System</title>
+  <meta name="viewport" content="width=1280">
+  <meta name="description" content="Kami - warm parchment design system for professional documents. One accent color, serif-led hierarchy, editorial whitespace.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<nav class="lang-switch"><a href="./index.html">中</a><a href="./index-en.html" class="active">EN</a></nav>
+<main class="page">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Design System · v1.0 · April 2026</p>
+      <h1>Kami<span class="cn">紙</span></h1>
+      <p class="tagline">The paper your deliverables land on. One design language across six document types: warm parchment, a single ink-blue accent, serif-led hierarchy, editorial whitespace.</p>
+    </div>
+    <div class="meta">
+      <div><b>Canvas</b>&nbsp;&nbsp;#f5f4ed</div>
+      <div><b>Accent</b>&nbsp;&nbsp;#1B365D</div>
+      <div><b>Serif</b>&nbsp;&nbsp;Newsreader / TsangerJinKai</div>
+      <div><b>Sans</b>&nbsp;&nbsp;Inter / Source Han Sans</div>
+      <div style="margin-top:10px; color: var(--olive);">Six templates · One language</div>
+    </div>
+  </header>
+
+  <!-- ============ 00 MANIFESTO ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">00 · Manifesto</p>
+      <h2 class="section-title">Design Manifesto</h2>
+    </div>
+    <p class="manifesto">Warm parchment canvas, <em>ink blue</em> as the sole accent, serif carries authority, no hard shadows or flashy palettes. This is not a UI framework; it is an aesthetic constraint system for printed matter. It believes: quality documents read like literature, not dashboards.</p>
+    <ol class="rules">
+      <li><span class="n">1</span><p>Page background is parchment <code>#f5f4ed</code>, never pure white</p></li>
+      <li><span class="n">2</span><p>Accent color is ink blue <code>#1B365D</code> only; no second chromatic hue</p></li>
+      <li><span class="n">3</span><p>All grays are warm (yellow-brown undertone); no cool blue-grays</p></li>
+      <li><span class="n">4</span><p>Headlines in serif, body and UI in sans</p></li>
+      <li><span class="n">5</span><p>Serif weight fixed at 500, never bold. Single weight is part of the design language</p></li>
+      <li><span class="n">6</span><p>Three line-height bands: tight titles 1.1-1.3 / dense 1.4-1.45 / reading 1.5-1.55. Never 1.6+</p></li>
+      <li><span class="n">7</span><p>Tag backgrounds must be solid hex; no rgba (WeasyPrint double-rectangle bug)</p></li>
+      <li><span class="n">8</span><p>Shadows: ring or whisper only, no hard drop shadows</p></li>
+    </ol>
+  </section>
+
+  <!-- ============ 01 COLOR ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">01 · Color</p>
+      <h2 class="section-title">Color</h2>
+      <p class="section-lede">One accent + warm neutrals + zero cool colors. Ink blue covers no more than <b>5%</b> of any page. Beyond that is clutter, not restraint.</p>
+    </div>
+
+    <h3 class="subhead">Canvas</h3>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#f5f4ed"></div><div class="info"><p class="name">Parchment</p><p class="role">Page background, the emotional foundation</p><span class="hex">#F5F4ED</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#faf9f5"></div><div class="info"><p class="name">Ivory</p><p class="role">Cards / elevated surfaces</p><span class="hex">#FAF9F5</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#e8e6dc"></div><div class="info"><p class="name">Warm Sand</p><p class="role">Button default / interactive surfaces</p><span class="hex">#E8E6DC</span></div></div>
+      <div class="swatch dark"><div class="chip" style="background:#141413"></div><div class="info"><p class="name" style="color:var(--deep-dark)">Deep Dark</p><p class="role">Dark theme page base, not pure black</p><span class="hex">#141413</span></div></div>
+    </div>
+
+    <h3 class="subhead">Brand</h3>
+    <div class="swatches">
+      <div class="swatch brand"><div class="chip" style="background:#1B365D"></div><div class="info"><p class="name">Ink Blue</p><p class="role">Primary color · CTA · section underlines</p><span class="hex">#1B365D</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#2D5A8A"></div><div class="info"><p class="name">Ink Light</p><p class="role">Links on dark surfaces · lighter variant</p><span class="hex">#2D5A8A</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#30302e"></div><div class="info"><p class="name" style="color:var(--deep-dark)">Dark Surface</p><p class="role">Dark theme container · warm charcoal</p><span class="hex">#30302E</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#b53333"></div><div class="info"><p class="name">Error</p><p class="role">Error state, deep warm red</p><span class="hex">#B53333</span></div></div>
+    </div>
+
+    <h3 class="subhead">Warm Neutrals</h3>
+    <div class="swatches" style="grid-template-columns: repeat(6, 1fr);">
+      <div class="swatch"><div class="chip" style="background:#141413"></div><div class="info"><p class="name">Near Black</p><span class="hex">#141413</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#3d3d3a"></div><div class="info"><p class="name">Dark Warm</p><span class="hex">#3D3D3A</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#4d4c48"></div><div class="info"><p class="name">Charcoal</p><span class="hex">#4D4C48</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#5e5d59"></div><div class="info"><p class="name">Olive</p><span class="hex">#5E5D59</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#87867f"></div><div class="info"><p class="name">Stone</p><span class="hex">#87867F</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#b0aea5"></div><div class="info"><p class="name">Warm Silver</p><span class="hex">#B0AEA5</span></div></div>
+    </div>
+
+    <h3 class="subhead">Tag Tints: rgba to solid hex</h3>
+    <p style="font-size:12.5px; color: var(--olive); max-width: 720px; margin: 0 0 16px; line-height: 1.55;">Ink Blue <code style="font-family:var(--mono);font-size:11px;background:#EEF2F7;color:var(--brand);padding:1px 5px;border-radius:2px">#1B365D</code> layered on parchment as equivalent solid hex. <b style="color:var(--brand);font-weight:500">Never</b> use <code style="font-family:var(--mono);font-size:11px;background:#EEF2F7;color:var(--brand);padding:1px 5px;border-radius:2px">rgba()</code>: WeasyPrint double-rectangle bug.</p>
+    <div class="tint-strip">
+      <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:#EEF2F7">Tag sample</span><p class="opacity">0.08</p><span class="hex">#EEF2F7</span></div>
+      <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:#E4ECF5">Tag sample</span><p class="opacity">0.14</p><span class="hex">#E4ECF5</span></div>
+      <div class="tint default"><span class="flag">Default</span><span class="sample" style="background:#E4ECF5">Tag sample</span><p class="opacity">0.18</p><span class="hex">#E4ECF5</span></div>
+      <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:#D6E1EE">Tag sample</span><p class="opacity">0.22</p><span class="hex">#D6E1EE</span></div>
+      <div class="tint"><span class="flag">&nbsp;</span><span class="sample" style="background:#D6E1EE">Tag sample</span><p class="opacity">0.30</p><span class="hex">#D6E1EE</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 02 TYPE ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">02 · Typography</p>
+      <h2 class="section-title">Typography</h2>
+      <p class="section-lede">Serif carries authority, sans carries function. Serif weight fixed at 500: single weight is the system's signature.</p>
+    </div>
+
+    <div class="family-grid">
+      <div class="family serif">
+        <p class="glyph">Aa</p>
+        <p class="role">Serif · Headlines</p>
+        <p class="name">Newsreader / TsangerJinKai02</p>
+        <p class="use">All headlines, pull quotes, and numeric emphasis. Fixed weight 500, never bold. English uses Newsreader; Chinese uses TsangerJinKai02.</p>
+      </div>
+      <div class="family sans">
+        <p class="glyph">Aa</p>
+        <p class="role">Sans · Body / UI</p>
+        <p class="name">Inter / Source Han Sans</p>
+        <p class="use">Body text, labels, buttons, metadata. Default 400, labels and titles use 500-600. Silicon Valley editorial stack.</p>
+      </div>
+      <div class="family mono">
+        <p class="glyph">&lt;/&gt;</p>
+        <p class="role">Mono · Code</p>
+        <p class="name">JetBrains Mono</p>
+        <p class="use">Code blocks, version numbers, hex values, tabular figures. One size smaller when paired with serif or sans.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead">Scale (print pt; screen px = pt x 1.33)</h3>
+    <div class="type-grid">
+
+      <div class="type-row">
+        <div class="type-label">Display</div>
+        <div class="type-sample display">Quality documents read<br>like literature</div>
+        <div class="type-specs"><b>36-48 pt</b><br>weight 500<br>line 1.10</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">H1 Section</div>
+        <div class="type-sample h1">Color System · Palette</div>
+        <div class="type-specs"><b>18-22 pt</b><br>weight 500<br>line 1.20</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">H2 Subsection</div>
+        <div class="type-sample h2">Canvas · Warm Neutrals</div>
+        <div class="type-specs"><b>14-16 pt</b><br>weight 500<br>line 1.25</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">H3 Item</div>
+        <div class="type-sample h3">Tag Tints · Solid Hex</div>
+        <div class="type-specs"><b>12-13 pt</b><br>weight 500<br>line 1.30</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">Body Lead</div>
+        <div class="type-sample lede">This is not a UI framework; it is an aesthetic constraint system for printed matter. Every rule trades one more option for one fewer temptation.</div>
+        <div class="type-specs"><b>11 pt</b><br>weight 400<br>line 1.55</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">Body</div>
+        <div class="type-sample body">Ink blue covers no more than 5% of any page. Beyond that is clutter, not restraint. All grays have a yellow-brown undertone: R ≈ G > B is the rule of thumb.</div>
+        <div class="type-specs"><b>9.5-10 pt</b><br>weight 400<br>line 1.55</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">Body Dense</div>
+        <div class="type-sample dense">Dense body is for resumes, one-pagers, business cards, index cards. At print pt sizes, line-height 1.4-1.45 feels natural; the web-standard 1.6 looks loose in this context.</div>
+        <div class="type-specs"><b>9-9.2 pt</b><br>weight 400<br>line 1.40</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">Caption</div>
+        <div class="type-sample caption">Figure notes, footnotes, annotation text. Color drops to olive or stone.</div>
+        <div class="type-specs"><b>8.5-9 pt</b><br>weight 400<br>line 1.45</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">Label</div>
+        <div class="type-sample label">Design System · v1.0</div>
+        <div class="type-specs"><b>7.5-8 pt</b><br>weight 600<br>line 1.35</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 03 SPACING ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">03 · Spacing &amp; Shape</p>
+      <h2 class="section-title">Spacing &amp; Shape</h2>
+      <p class="section-lede">Base unit: 4pt. Denser layouts get smaller margins; more formal documents get larger ones.</p>
+    </div>
+
+    <table class="space-table">
+      <tr>
+        <th>Scale</th><th>Value</th><th>Use</th><th></th>
+      </tr>
+      <tr><td class="name">xs</td><td class="val">2-3 pt</td><td class="use">Inline elements</td><td class="bar"><span style="width:6px"></span></td></tr>
+      <tr><td class="name">sm</td><td class="val">4-5 pt</td><td class="use">Tag padding · tight layout</td><td class="bar"><span style="width:12px"></span></td></tr>
+      <tr><td class="name">md</td><td class="val">8-10 pt</td><td class="use">Component internals</td><td class="bar"><span style="width:24px"></span></td></tr>
+      <tr><td class="name">lg</td><td class="val">16-20 pt</td><td class="use">Between components · card padding</td><td class="bar"><span style="width:48px"></span></td></tr>
+      <tr><td class="name">xl</td><td class="val">24-32 pt</td><td class="use">Section title margins</td><td class="bar"><span style="width:72px"></span></td></tr>
+      <tr><td class="name">2xl</td><td class="val">40-60 pt</td><td class="use">Between major sections</td><td class="bar"><span style="width:140px"></span></td></tr>
+      <tr><td class="name">3xl</td><td class="val">80-120 pt</td><td class="use">Between long-doc chapters</td><td class="bar"><span style="width:240px"></span></td></tr>
+    </table>
+
+    <h3 class="subhead">Radii</h3>
+    <div class="radii">
+      <div class="radius"><div class="box" style="border-radius:4px"></div><div class="r"><b>4</b> pt</div><div class="label">Tight</div></div>
+      <div class="radius"><div class="box" style="border-radius:6px"></div><div class="r"><b>6</b> pt</div><div class="label">Code block</div></div>
+      <div class="radius"><div class="box" style="border-radius:8px"></div><div class="r"><b>8</b> pt</div><div class="label">Default card</div></div>
+      <div class="radius"><div class="box" style="border-radius:12px"></div><div class="r"><b>12</b> pt</div><div class="label">Container</div></div>
+      <div class="radius"><div class="box" style="border-radius:16px"></div><div class="r"><b>16</b> pt</div><div class="label">Feature card</div></div>
+      <div class="radius"><div class="box" style="border-radius:24px"></div><div class="r"><b>24</b> pt</div><div class="label">Large container</div></div>
+      <div class="radius"><div class="box" style="border-radius:32px"></div><div class="r"><b>32</b> pt</div><div class="label">Hero</div></div>
+    </div>
+
+    <h3 class="subhead">Depth: Three Shadow Methods</h3>
+    <p style="font-size:12.5px; color: var(--olive); max-width: 720px; margin: 0 0 12px; line-height: 1.55;">Kami avoids traditional hard shadows. Depth is created through ring shadow / whisper shadow / light-dark alternation.</p>
+    <div class="shadow-row">
+      <div class="shadow-demo sd-ring">
+        <p class="t">Ring Shadow</p>
+        <p class="s">box-shadow: 0 0 0 1pt var(--ring-warm)<br>&nbsp;<br>Buttons · card hover</p>
+      </div>
+      <div class="shadow-demo sd-whisper">
+        <p class="t">Whisper Shadow</p>
+        <p class="s">0 4pt 24pt rgba(0,0,0,0.05)<br>&nbsp;<br>Gentle elevation · feature cards</p>
+      </div>
+      <div class="shadow-demo sd-alt">
+        <p class="t">Light / Dark</p>
+        <p class="s">parchment / deep-dark<br>&nbsp;<br>Section-level · most dramatic</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 COMPONENTS ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">04 · Components</p>
+      <h2 class="section-title">Components</h2>
+      <p class="section-lede">A small, fixed set. Each answers a specific question.</p>
+    </div>
+
+    <div class="comp-grid">
+
+      <div class="comp">
+        <h4>Buttons</h4>
+        <p class="hint">ring shadow instead of hard drop · 8pt radius</p>
+        <div class="demo" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="btn btn-primary">Primary CTA</span>
+          <span class="btn btn-secondary">Secondary</span>
+          <span class="btn btn-ghost">Ghost</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <h4>Tags (three levels)</h4>
+        <p class="hint">solid hex · pick from weak to strong</p>
+        <div class="demo" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+          <span class="tag calm">Light 0.08</span>
+          <span class="tag standard">Standard 0.18</span>
+          <span class="tag brush">Brush gradient</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <h4>Quote</h4>
+        <p class="hint">left 2pt brand solid + olive text</p>
+        <blockquote class="quote">A thousand no's for every yes. Prefer clarity over decoration.</blockquote>
+      </div>
+
+      <div class="comp">
+        <h4>Metric</h4>
+        <p class="hint">serif number + sans label · tabular-nums</p>
+        <div class="metrics demo">
+          <div class="metric"><span class="metric-value">6</span><span class="metric-label">Doc types</span></div>
+          <div class="metric"><span class="metric-value">1</span><span class="metric-label">Accent</span></div>
+          <div class="metric"><span class="metric-value">8</span><span class="metric-label">Rules</span></div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <h4>Section Title</h4>
+        <p class="hint">serif 500 + 1pt brand underline (signature style)</p>
+        <div class="demo">
+          <span class="sample-section-title">Selected Works · Projects</span>
+        </div>
+      </div>
+
+      <div class="comp">
+        <h4>Dash List</h4>
+        <p class="hint">dash instead of bullet · more literary</p>
+        <ul class="dash demo">
+          <li>Warm parchment, never pure white</li>
+          <li>Ink blue accent, no second color</li>
+          <li>Serif carries authority</li>
+        </ul>
+      </div>
+
+      <div class="comp">
+        <h4>Code Block</h4>
+        <p class="hint">ivory bg + 0.5pt border + 6pt radius</p>
+<pre class="code"><span class="c">/* section title */</span>
+.section-title {
+  font-family: <span class="k">serif</span>;
+  font-weight: <span class="k">500</span>;
+  border-bottom: <span class="k">1pt</span> solid
+    var(--brand);
+}</pre>
+      </div>
+
+      <div class="comp">
+        <h4>Featured Card</h4>
+        <p class="hint">whisper shadow + 16pt radius</p>
+        <div class="demo" style="background:var(--ivory); border-radius:16px; padding:18px 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); border: 1px solid var(--border-cream);">
+          <p style="font-family:var(--serif); font-weight:500; font-size:15px; margin:0 0 6px; color:var(--near-black);">Tesla Company Profile · One-Pager</p>
+          <p style="font-size:12px; color:var(--olive); margin:0 0 10px; line-height:1.5;">Single A4 page · 4 metric cards + 3 body sections + timeline</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="tag calm">English</span>
+            <span class="tag calm">A4 x 1</span>
+            <span class="tag calm">Ink Blue</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 05 DECISION TABLE ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">05 · Decision Lookup</p>
+      <h2 class="section-title">Decision Lookup</h2>
+      <p class="section-lede">When in doubt about what to use, consult this table. If it's not here, go back to first principles.</p>
+    </div>
+    <table class="decision">
+      <tr><th>Task</th><th>How</th></tr>
+      <tr><td class="task">Large headline</td><td class="how">serif <code>500</code>, size by hierarchy, line-height <code>1.10-1.30</code></td></tr>
+      <tr><td class="task">Reading body</td><td class="how">sans <code>400</code>, <code>9.5-10 pt</code>, line-height <code>1.55</code></td></tr>
+      <tr><td class="task">Emphasize a number</td><td class="how"><code>color: var(--brand)</code>, not bold</td></tr>
+      <tr><td class="task">Separate two sections</td><td class="how"><code>1pt</code> brand border-bottom, or <code>0.5pt</code> warm-gray dashed</td></tr>
+      <tr><td class="task">Quote someone</td><td class="how">Left <code>2pt</code> brand solid + olive text</td></tr>
+      <tr><td class="task">Show code</td><td class="how">Ivory bg + <code>0.5pt</code> border + <code>6pt</code> radius + mono font</td></tr>
+      <tr><td class="task">Primary vs secondary</td><td class="how">Primary: brand fill + ivory text; Secondary: warm-sand + charcoal</td></tr>
+      <tr><td class="task">Mark a special card</td><td class="how"><code>border: 0.5pt solid var(--brand)</code> or <code>border-left: 3pt</code></td></tr>
+      <tr><td class="task">Begin a section</td><td class="how">Serif title + <code>1pt</code> brand underline below</td></tr>
+      <tr><td class="task">Document cover</td><td class="how">Single page, Display size + right-aligned author/date + generous whitespace</td></tr>
+      <tr><td class="task">Data card</td><td class="how">Ivory bg + <code>8pt</code> radius + serif large number (ink blue) + sans small label</td></tr>
+    </table>
+  </section>
+
+  <!-- ============ 06 ANTI ============ -->
+  <section>
+    <div class="section-head">
+      <p class="section-num">06 · Anti-Patterns</p>
+      <h2 class="section-title">Anti-Patterns</h2>
+      <p class="section-lede">Before breaking a rule, make sure you truly intend to.</p>
+    </div>
+
+    <div class="anti">
+      <div class="no">
+        <h5>Don't</h5>
+        <p>Use <code>#ffffff</code> pure white or <code>#f3f4f6</code> cool gray as page background. Kami's emotional foundation is warm parchment.</p>
+      </div>
+      <div class="yes">
+        <h5>Do</h5>
+        <p>Always use <code>#f5f4ed</code> parchment. Set <code>@page background</code> to the same color to avoid white edges when printing.</p>
+      </div>
+
+      <div class="no">
+        <h5>Don't</h5>
+        <p>Use <code>rgba(27,54,93,0.18)</code> for tags. WeasyPrint renders padding and glyph areas at different opacity, creating double rectangles.</p>
+      </div>
+      <div class="yes">
+        <h5>Do</h5>
+        <p>Use the tint lookup table for equivalent solid hex <code>#E4ECF5</code>. Bug gone, color consistent.</p>
+      </div>
+
+      <div class="no">
+        <h5>Don't</h5>
+        <p>Set headlines to <code>font-weight: 700</code> bold. Serif 500 is the system's signature; bold makes the layout feel restless.</p>
+      </div>
+      <div class="yes">
+        <h5>Do</h5>
+        <p>Keep serif at 500. For stronger presence, increase size or add a 1pt brand underline. Never go bold.</p>
+      </div>
+
+      <div class="no">
+        <h5>Don't</h5>
+        <p>Use hard drop shadow <code>0 2px 8px rgba(0,0,0,0.3)</code>. Cold, SaaS-like, prints as dark blobs.</p>
+      </div>
+      <div class="yes">
+        <h5>Do</h5>
+        <p>Ring shadow (<code>0 0 0 1pt</code>) or whisper (<code>rgba 0.05</code>), or simply alternate light and dark sections.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="mark">
+      <svg width="56" height="56" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Kami mark">
+        <rect x="6" y="6" width="68" height="68" rx="10" fill="#faf9f5" stroke="#1B365D" stroke-width="1.25"/>
+        <line x1="16" y1="26" x2="64" y2="26" stroke="#1B365D" stroke-width="1.25"/>
+        <text x="40" y="56" font-family="TsangerJinKai02, Georgia, serif" font-size="34" font-weight="500" fill="#141413" text-anchor="middle">紙</text>
+      </svg>
+      <div>
+        <p class="wm-name">Kami · 紙</p>
+        <p class="wm-sub">The paper your deliverables land on.</p>
+      </div>
+    </div>
+    <div class="colophon">
+      <div><b>Distilled from</b>&nbsp;&nbsp;references/design.md · CHEATSHEET.md · tokens.json</div>
+      <div><b>Document types</b>&nbsp;&nbsp;One-Pager · Long Doc · Letter · Portfolio · Resume · Slides</div>
+      <div style="margin-top:8px; color: var(--olive); font-family: var(--serif);">
+        Serif for authority, sans for function, warm grays for rhythm, ink blue for focus.
+      </div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

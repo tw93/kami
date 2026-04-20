@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Elon Musk · Resume</title>
+<style>
+  @font-face {
+    font-family: "Newsreader";
+    src: url("../fonts/Newsreader.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Newsreader";
+    src: url("../fonts/Newsreader.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMono.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 11mm 13mm 11mm 13mm;
+    background: #f5f4ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --sand:      #e8e6dc;
+    --border:    #e8e6dc;
+    --border-soft: #efede4;
+    --near-black: #141413;
+    --dark-warm: #3d3d3a;
+    --olive:     #5e5d59;
+    --stone:     #87867f;
+    --brand:     #1B365D;
+    --brand-tint: #EEF2F7;
+    --brand-tint-strong: #E4ECF5;
+
+    --serif: "Newsreader", "Source Serif 4", "Source Serif Pro", "Charter",
+             Georgia, "Times New Roman", serif;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont,
+             "Helvetica Neue", Arial, sans-serif;
+    --mono:  "JetBrains Mono", "SF Mono", "Fira Code",
+             Consolas, Monaco, monospace;
+  }
+
+  html, body { background: var(--parchment); }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 9.4pt;
+    line-height: 1.42;
+    letter-spacing: 0;
+  }
+
+  .serif { font-family: var(--serif); }
+  .mono  { font-family: var(--mono); }
+
+  a { color: var(--brand); text-decoration: none; }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 3mm;
+    margin-bottom: 3mm;
+    border-bottom: 0.5pt solid var(--brand);
+  }
+  .header > div:first-child { flex-shrink: 0; }
+  .name {
+    font-family: var(--serif);
+    font-size: 26pt;
+    font-weight: 500;
+    letter-spacing: -0.2pt;
+    color: var(--near-black);
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 3mm;
+    white-space: nowrap;
+  }
+  .alias {
+    font-size: 12.5pt;
+    font-weight: 400;
+    color: var(--stone);
+  }
+  .contact {
+    text-align: right;
+    font-size: 9pt;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+  .contact .role {
+    color: var(--brand);
+    font-size: 10.5pt;
+    font-weight: 500;
+  }
+  .contact .sep { color: var(--border); margin: 0 0.4em; }
+  .contact a { color: var(--dark-warm); }
+  .contact .loc { color: var(--olive); font-weight: 500; }
+
+  /* METRICS */
+  .metrics { display: flex; gap: 7mm; margin-bottom: 3mm; }
+  .metric {
+    flex: 1;
+    padding: 1mm 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+    break-inside: avoid;
+  }
+  .metric-value {
+    font-family: var(--serif);
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-value .unit {
+    font-size: 10.5pt;
+    margin-left: 0.5mm;
+    font-weight: 500;
+    color: var(--brand);
+  }
+  .metric-label { font-size: 8.8pt; color: var(--olive); line-height: 1.2; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: var(--serif);
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--near-black);
+    border-bottom: 1pt solid var(--brand);
+    padding: 0 0 1mm 0;
+    margin: 5mm 0 2mm 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2.5mm;
+  }
+  .section-title .sub {
+    margin-left: auto;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 9pt;
+    color: var(--stone);
+    letter-spacing: 0.2pt;
+  }
+  section:first-of-type .section-title { margin-top: 0; }
+  .page-break > .section-title { margin-top: 0; }
+
+  /* SUMMARY */
+  .summary { font-size: 9.4pt; line-height: 1.48; color: var(--near-black); }
+  .summary .hl { color: var(--brand); }
+
+  /* TIMELINE */
+  .timeline { display: flex; gap: 7mm; margin-bottom: 2.5mm; }
+  .tl-step { flex: 1; padding: 0.8mm 0; break-inside: avoid; }
+  .tl-top {
+    display: flex; align-items: baseline; gap: 2mm;
+    margin-bottom: 0.6mm;
+  }
+  .tl-year {
+    font-family: var(--serif);
+    font-size: 11pt; font-weight: 500;
+    color: var(--brand); line-height: 1;
+  }
+  .tl-head {
+    font-size: 11pt; font-weight: 500;
+    color: var(--near-black);
+  }
+  .tl-body { font-size: 8.8pt; color: var(--olive); line-height: 1.45; }
+
+  /* PROJECTS */
+  .project {
+    padding: 1.6mm 0;
+    border-top: 0.4pt solid var(--border-soft);
+    break-inside: avoid;
+  }
+  .project:first-of-type {
+    border-top: 0.4pt solid var(--border);
+    padding-top: 1.6mm;
+  }
+  .proj-head {
+    display: flex; align-items: baseline;
+    gap: 2mm; margin-bottom: 0.9mm;
+  }
+  .proj-name {
+    font-family: var(--serif);
+    font-size: 11pt; font-weight: 500; color: var(--near-black);
+  }
+  .proj-kind { font-size: 11pt; color: var(--olive); }
+  .proj-role {
+    font-size: 8.4pt; color: var(--brand); font-weight: 600;
+    margin-left: auto; background: #EEF2F7;
+    padding: 0.4mm 1.6mm; border-radius: 2pt; letter-spacing: 0.3pt;
+    text-transform: uppercase;
+  }
+  .proj-lines { display: table; width: 100%; }
+  .proj-row { display: table-row; }
+  .proj-label {
+    display: table-cell; width: 16mm;
+    font-size: 8.5pt; color: var(--brand);
+    font-weight: 600; letter-spacing: 0.4pt;
+    text-transform: uppercase;
+    padding: 0.4mm 0 0.4mm 0; vertical-align: top;
+  }
+  .proj-text {
+    display: table-cell; font-size: 9.2pt;
+    color: var(--near-black); line-height: 1.45;
+    padding: 0 0 0.4mm 1mm;
+  }
+  .proj-text .hl { color: var(--brand); }
+
+  /* PAGE 2 FORCE BREAK */
+  .page-break { break-before: page; }
+
+  /* OPEN SOURCE */
+  .os-intro {
+    font-size: 9.4pt; line-height: 1.45;
+    color: var(--near-black);
+    margin: 1.6mm 0 2.4mm 0;
+    break-inside: avoid;
+  }
+  .os-intro .hl { color: var(--brand); }
+  .os-intro .strong { color: var(--near-black); font-weight: 500; }
+
+  .os-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 9mm; row-gap: 1.2mm;
+  }
+  .os-item {
+    display: flex; align-items: baseline;
+    gap: 2.5mm; padding: 1.2mm 0;
+    border-bottom: 0.3pt dotted var(--border);
+    break-inside: avoid;
+  }
+  .os-name {
+    font-family: var(--serif);
+    font-size: 10.5pt; font-weight: 500;
+    flex-shrink: 0; min-width: 18mm;
+  }
+  .os-name a { color: var(--brand); }
+  .os-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; flex: 1; }
+  .os-star {
+    font-size: 8.8pt; color: var(--dark-warm);
+    font-weight: 600; white-space: nowrap;
+    flex-shrink: 0; min-width: 10mm; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .os-star.big { color: var(--brand); font-size: 9.2pt; }
+
+  .os-highlight {
+    margin-top: 2.5mm;
+    padding: 1.8mm 3mm;
+    background: var(--brand-tint);
+    border-left: 1.4pt solid var(--brand);
+    border-radius: 2pt;
+    font-size: 9pt; line-height: 1.45;
+    color: var(--near-black);
+    break-inside: avoid;
+  }
+  .os-highlight .hl { color: var(--brand); }
+  .os-highlight .tag {
+    display: inline-block;
+    background: var(--brand); color: var(--ivory);
+    font-size: 7.6pt; font-weight: 600;
+    padding: 0.2mm 1.6mm; border-radius: 2pt;
+    margin-right: 1.5mm; letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    transform: translateY(-0.2mm);
+  }
+
+  /* CONVICTIONS */
+  .convictions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3mm;
+    margin-top: 1.4mm;
+  }
+  .conv-card { padding: 0 2mm 0 0; break-inside: avoid; }
+  .conv-head {
+    font-family: var(--serif);
+    font-size: 10pt; font-weight: 500;
+    color: var(--near-black); margin-bottom: 1mm;
+    display: flex; align-items: baseline; gap: 2mm;
+  }
+  .conv-head .year {
+    color: var(--brand); font-weight: 600;
+    font-size: 9pt;
+    font-variant-numeric: tabular-nums;
+  }
+  .conv-body {
+    font-size: 9pt; color: var(--olive);
+    line-height: 1.45;
+  }
+  .conv-body .hl { color: var(--brand); }
+
+  /* IMPACT */
+  .handle-strip {
+    padding: 0; margin: 1.4mm 0 2mm 0;
+    display: flex; align-items: baseline; gap: 3.5mm;
+    break-inside: avoid;
+  }
+  .handle-strip .handle {
+    font-family: var(--serif);
+    font-size: 10pt; font-weight: 500; color: var(--brand);
+    flex-shrink: 0;
+  }
+  .handle-strip .follower { font-size: 8.8pt; color: var(--stone); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+  .handle-strip .desc { font-size: 8.8pt; color: var(--olive); line-height: 1.45; flex: 1; }
+
+  .impact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 6mm; }
+  .inf-block-title {
+    margin-top: 2.5mm;
+    font-family: var(--serif);
+    font-size: 10pt; font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 1.5mm; padding-bottom: 0.5mm;
+    border-bottom: 0.3pt dotted var(--border);
+    display: flex; align-items: baseline; gap: 2mm;
+  }
+  .inf-block-title .small {
+    font-family: var(--sans);
+    font-size: 8.5pt; color: var(--stone);
+    font-weight: 400;
+  }
+  .art-row {
+    padding: 1.8mm 0;
+    border-bottom: 0.3pt dotted var(--border-soft);
+  }
+  .talk-row {
+    display: flex; justify-content: space-between;
+    align-items: flex-start;
+    gap: 2mm; padding: 1.8mm 0;
+    border-bottom: 0.3pt dotted var(--border-soft);
+  }
+  .art-row:last-of-type, .talk-row:last-of-type { border-bottom: none; }
+  .art-header {
+    display: flex; align-items: baseline;
+    justify-content: space-between;
+    gap: 2mm;
+  }
+  .art-title, .talk-title {
+    font-size: 9.2pt; color: var(--near-black);
+    font-weight: 500; line-height: 1.4;
+    flex: 1 1 auto; min-width: 0;
+  }
+  .art-stats, .talk-venue {
+    font-size: 8.8pt; color: var(--stone);
+    line-height: 1.4; margin-top: 0.6mm;
+  }
+  .art-stats .em-brand { color: var(--brand); }
+  .art-date, .talk-date {
+    font-size: 8.8pt; color: var(--stone);
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  /* SKILLS */
+  .skill-row {
+    display: flex; gap: 3mm; padding: 1.8mm 0;
+    border-bottom: 0.3pt dotted var(--border);
+    align-items: baseline;
+  }
+  .skill-row:last-of-type { border-bottom: none; }
+  .skill-label {
+    font-size: 8.6pt; font-weight: 600;
+    color: var(--brand); letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    width: 32mm; flex-shrink: 0;
+    line-height: 1.35;
+  }
+  .skill-body { font-size: 9.2pt; color: var(--near-black); line-height: 1.45; flex: 1; }
+  .skill-body .em-brand { color: var(--brand); }
+
+  /* EDUCATION */
+  .edu-row {
+    display: flex; justify-content: space-between;
+    align-items: baseline; padding: 1.8mm 0;
+  }
+  .edu-row .school {
+    font-family: var(--serif);
+    font-weight: 500; font-size: 11pt;
+  }
+  .edu-row .major { color: var(--olive); font-size: 9.4pt; }
+  .edu-row .date { color: var(--stone); font-variant-numeric: tabular-nums; font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     Usage:
+     - Replace all {{VAR}} placeholders with real content
+     - Drop sections that don't apply (e.g. no open source -> remove that block)
+     - Each project strictly three-part: ROLE / ACTIONS / IMPACT
+     - Must verify: 2 pages exactly (strict)
+       python3 scripts/build.py resume-en
+     - Content strategy: references/writing.en.md
+     ===================================================================== -->
+
+
+<!-- ═══════════ PAGE 1 ═══════════ -->
+
+<div class="header">
+  <div>
+    <div class="name serif">Elon Musk</div>
+  </div>
+  <div class="contact">
+    <span class="role">Founder · Chief Engineer · CEO</span>
+    <br>
+    <a href="https://x.com/elonmusk">x.com/elonmusk</a>
+    <span class="sep">·</span>
+    <a href="mailto:em@example.com">em@example.com</a>
+    <span class="sep">·</span>
+    <span class="loc">Austin, TX</span>
+  </div>
+</div>
+
+<!-- Four strongest numeric badges -->
+<div class="metrics">
+  <div class="metric"><span class="metric-value serif">30<span class="unit">yrs</span></span><span class="metric-label">building hard tech</span></div>
+  <div class="metric"><span class="metric-value serif">6<span class="unit">cos</span></span><span class="metric-label">founded / co-founded</span></div>
+  <div class="metric"><span class="metric-value serif">400<span class="unit">+</span></span><span class="metric-label">Falcon launches, lifetime</span></div>
+  <div class="metric"><span class="metric-value serif">7M<span class="unit">+</span></span><span class="metric-label">Tesla vehicles delivered</span></div>
+</div>
+
+<section>
+  <div class="section-title">Summary</div>
+  <div class="summary">
+    Founder and engineer across SpaceX, Tesla, xAI, Neuralink, The Boring Company, and X. 30 years running companies where the product is hard and the supply chain is physical. Long arc: move civilization to multi-planetary, sustainable energy, beneficial AI. Core depth in rocket engineering, mass manufacturing, capital markets, and first-principles problem decomposition.
+  </div>
+</section>
+
+<section>
+  <div class="section-title">Experience<span class="sub">1995 — Present · six companies, one reusable rocket, one mass-market EV</span></div>
+
+  <!-- Timeline: three-step long-range arc -->
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">1995</div><div class="tl-head">Internet era</div></div>
+      <div class="tl-body">Zip2 -> X.com -> PayPal. Sold two internet companies before age 32.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">2002</div><div class="tl-head">Space + autos</div></div>
+      <div class="tl-body">SpaceX, Tesla, SolarCity. Built physical infrastructure others called impossible.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-top"><div class="tl-year serif">2023</div><div class="tl-head">AI era</div></div>
+      <div class="tl-body">xAI, Neuralink scaling, X platform ownership. New bet on general intelligence and BCI.</div>
+    </div>
+  </div>
+
+  <!-- Project block — repeat 3–5 times -->
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">SpaceX</span>
+      <span class="proj-kind">· Space launch · reusable rockets</span>
+      <span class="proj-role">founder</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">Role</div>
+        <div class="proj-text">Founded SpaceX in 2002 to make humanity multi-planetary. First private company to reach orbit (2008), dock with ISS (2012), land and reuse an orbital-class booster (2015), and fly crew (2020). CEO and Chief Engineer from day one.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Actions</div>
+        <div class="proj-text">Vertical integration from propellant to avionics. Merlin and Raptor engines designed in-house. Reusable-booster thesis pursued through 12 failed landings before success. Starship developed publicly with high-cadence prototype testing. Launch cadence scaled from 1 flight per year (2008) to one every 2-3 days (2024).</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Impact</div>
+        <div class="proj-text">Falcon 9: <span class="hl">400+ successful launches</span>, 95%+ reuse rate, cost-per-kg to orbit reduced by a factor of 10 versus legacy providers. Starlink: <span class="hl">7,000+ satellites</span> in orbit, largest constellation ever deployed. SpaceX valued at $350B (2024 secondary round), now responsible for the majority of US orbital mass launched.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">Tesla</span>
+      <span class="proj-kind">· EVs · energy · autonomy</span>
+      <span class="proj-role">ceo</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">Role</div>
+        <div class="proj-text">Joined Tesla as lead investor and chairman in 2004; took over as CEO in 2008 during near-bankruptcy. Built it from a two-car roadster project into the world's most valuable automaker by a factor of two.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Actions</div>
+        <div class="proj-text">Scaled Model S -> 3 -> Y via the Master Plan framework, treating each model as capital to fund the next. Built four Gigafactories on three continents. Shipped FSD as a continuously improving software product, not a fixed-version feature. Vertically integrated batteries, motors, silicon, and charging.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Impact</div>
+        <div class="proj-text">Tesla: <span class="hl">7M+ vehicles delivered</span> lifetime (1.8M in 2023 alone), first EV to cross 20% gross margin, first automaker to cross $1T market cap. Reshaped the industry such that every major incumbent announced an EV transition strategy within 5 years of Model 3 launch.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">xAI</span>
+      <span class="proj-kind">· Frontier AI · foundation models</span>
+      <span class="proj-role">founder</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">Role</div>
+        <div class="proj-text">Founded xAI in 2023 with a focus on understanding the true nature of the universe. Shipped Grok within 6 months of incorporation, one of the fastest foundation-model companies to production.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Actions</div>
+        <div class="proj-text">Built Colossus, a 100,000-H100 GPU supercluster, in 122 days from concept to training start. Integrated Grok directly into X to give the model unique real-time data access and the product a real user base from day one.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Impact</div>
+        <div class="proj-text">Colossus stood up in <span class="hl">122 days</span>, a pace treated as implausible inside the industry. Grok reached ChatGPT-comparable benchmarks within 18 months of company founding, with xAI valued at $50B in 2024 funding.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="proj-head">
+      <span class="proj-name serif">Neuralink</span>
+      <span class="proj-kind">· Brain-computer interfaces · BCI implants</span>
+      <span class="proj-role">founder</span>
+    </div>
+    <div class="proj-lines">
+      <div class="proj-row">
+        <div class="proj-label">Actions</div>
+        <div class="proj-text">Founded 2016 to build high-bandwidth BCI. Shipped the N1 chip with <span class="hl">1,024 electrodes</span> and a precision surgical robot. Secured FDA Breakthrough Device designation and IDE approval (2023) after five years of primate trials.</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-label">Impact</div>
+        <div class="proj-text">First human implanted January 2024; cursor control in 30 days. <span class="hl">Second patient mid-2024</span>, expanding to speech restoration. Valued at $5B (2023).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ PAGE 2 ═══════════ -->
+
+<section class="page-break">
+  <div class="section-title">Open Source &amp; Indie Work<span class="sub">1995 — present · Founder-engineer across six hard-tech companies</span></div>
+
+  <div class="os-intro">
+    <span class="hl">First-principles founder across hard tech.</span> Approach: start from the physics, question every received cost assumption, prototype in public. Public reach: <span class="strong">214M followers on X · 125 followers on GitHub</span>.
+  </div>
+
+  <div class="os-grid">
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://spacex.com">SpaceX</a></span>
+      <span class="os-desc">Launch · Starlink · Starship</span>
+      <span class="os-star big">★ $350B</span>
+    </div>
+    <div class="os-item">
+      <span class="os-name serif"><a href="https://tesla.com">Tesla</a></span>
+      <span class="os-desc">EVs · energy · FSD</span>
+      <span class="os-star big">★ $900B</span>
+    </div>
+  </div>
+
+  <div class="os-highlight">
+    <span class="tag">Cadence</span>The Falcon 9 booster that landed on 22 December 2015 was the first orbital-class rocket to return intact and fly again. The industry assumption that rockets were expendable was gone within 24 months.
+  </div>
+</section>
+
+<section>
+  <div class="section-title">Judgment &amp; Conviction</div>
+  <div class="convictions">
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">1999</span>Bet on online banking</div>
+      <div class="conv-body">
+        Founded X.com while consumer online banking was niche; merger with Confinity became PayPal. Sold to eBay for $1.5B, with most of the proceeds recycled into SpaceX and Tesla within 24 months.
+      </div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">2008</span>CEO during near-bankruptcy</div>
+      <div class="conv-body">
+        Took Tesla CEO during the 2008 crisis, three weeks from insolvency. Closed a Mercedes partnership that funded Model S development, a decision that made every subsequent Tesla product possible.
+      </div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-head"><span class="year">2015</span>Committed to reusable boosters</div>
+      <div class="conv-body">
+        Pushed Falcon 9 reusability after <span class="hl">12 consecutive landing failures</span> when board and industry said stop. Succeeded on attempt 13. Reusability is now the assumed baseline across every launch provider.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">Public Impact</div>
+
+  <div class="handle-strip">
+    <span class="handle serif">X · <a href="https://tesla.com/blog" style="color: var(--brand); border-bottom: none;">@elonmusk</a></span>
+    <span class="follower">214M followers</span>
+    <span class="desc">Direct channel to 214M followers. Each engineering post, launch video, or product hint moves markets within hours.</span>
+  </div>
+
+  <div class="impact-grid">
+    <div>
+      <div class="inf-block-title">Selected writing<span class="small">Founder-engineer across six hard-tech companies</span></div>
+      <div class="art-row">
+        <div class="art-header">
+          <a class="art-title" href="https://youtube.com/ted" style="text-decoration: none;">Master Plan Part Deux</a>
+          <span class="art-date">2016.07</span>
+        </div>
+        <div class="art-stats">Tesla blog, <span class="em-brand">40M+</span> combined reads; reframed EV strategy for the industry</div>
+      </div>
+      <div class="art-row">
+        <div class="art-header">
+          <a class="art-title" href="https://spacex.com" style="text-decoration: none;">First Principles Thinking in Engineering</a>
+          <span class="art-date">2013.03</span>
+        </div>
+        <div class="art-stats">TED Talk · 5.6M views on youtube.com</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="inf-block-title">Invited talks<span class="small">Founder-engineer across six hard-tech companies</span></div>
+      <div class="talk-row">
+        <div>
+          <div class="talk-title">Making Humans Multi-Planetary</div>
+          <div class="talk-venue">IAC Guadalajara · 2016</div>
+        </div>
+        <div class="talk-date">2016.09</div>
+      </div>
+      <div class="talk-row">
+        <div>
+          <div class="talk-title">Starship and Mars</div>
+          <div class="talk-venue">Starbase Texas · 2024</div>
+        </div>
+        <div class="talk-date">2024.04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">Core Skills</div>
+  <!-- Five fixed rows, each with at least one brand-color emphasis -->
+  <div class="skill-row">
+    <div class="skill-label">Rocket · Engine Design</div>
+    <div class="skill-body">Led Merlin, Raptor, Starship architecture; <span class="em-brand">first reusable orbital booster</span> shipped by any org.</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">Manufacturing · Scale</div>
+    <div class="skill-body">Built Tesla Fremont, Shanghai, Berlin, Austin; SpaceX vehicle assembly from 0 to <span class="em-brand">100+ launches per year</span>.</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">Capital · Crisis Mgmt</div>
+    <div class="skill-body">Closed Daimler investment when Tesla was <span class="em-brand">weeks from insolvency</span>; survived five near-bankruptcies across companies.</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">Public Communication</div>
+    <div class="skill-body">214M followers on X; product announcements routinely move the <span class="em-brand">S&amp;P 500 component</span> price of his companies.</div>
+  </div>
+  <div class="skill-row">
+    <div class="skill-label">First Principles · Cost</div>
+    <div class="skill-body">Questioning every accepted cost assumption (rockets, batteries, tunneling) has driven <span class="em-brand">10× cost reductions</span> across four industries.</div>
+  </div>
+</section>
+
+<section style="break-inside: avoid;">
+  <div class="section-title">Education</div>
+  <div class="edu-row">
+    <div>
+      <span class="school serif">University of Pennsylvania</span>
+      <span class="major"> · Wharton · College of Arts &amp; Sciences · B.S. Economics · B.A. Physics · transferred from Queen's University; enrolled in Stanford physics PhD, left after two days</span>
+    </div>
+    <div class="date">1992 — 1997</div>
+  </div>
+</section>
+
+</body>
+</html>

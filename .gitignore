@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Font build artifacts
+assets/fonts/*.otf
+assets/fonts/Newsreader-italic.woff
+
+# Template examples with placeholder content, regenerate via: python3 scripts/build.py
+assets/examples/
+
+/tmp/
+*.log

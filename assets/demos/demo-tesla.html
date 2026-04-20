@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     ONE-PAGER TEMPLATE · parchment design system
+     单页 A4 方案/报告/执行摘要
+     改完跑：python3 -c "from weasyprint import HTML; HTML('one-pager.html').write_pdf('out.pdf')"
+     目标：页数必须 == 1
+     ================================================================== -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Tesla, Inc. · 公司介绍</title>
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("../fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 18mm 15mm 18mm;
+    background: #f5f4ed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #f5f4ed;
+    --ivory:     #faf9f5;
+    --sand:      #e8e6dc;
+    --near-black:#141413;
+    --dark-warm: #3d3d3a;
+    --charcoal:  #4d4c48;
+    --olive:     #5e5d59;
+    --stone:     #87867f;
+    --brand:     #1B365D;
+    --border:    #e8e6dc;
+    --border-soft:#efede4;
+    --tag-bg:    #E4ECF5;
+  }
+
+  html, body { background: var(--parchment); }
+
+  body {
+    color: var(--near-black);
+    font-family: "TsangerJinKai02", "Source Han Serif SC",
+                 "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  .serif {
+    font-family: "TsangerJinKai02", "Source Han Serif SC",
+                 "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+  }
+
+  /* ========== HEADER ========== */
+  .header {
+    border-bottom: 1pt solid var(--brand);
+    padding-bottom: 8pt;
+    margin-bottom: 14pt;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20pt;
+  }
+  .title-block {
+    flex: 1;
+  }
+  .eyebrow {
+    font-size: 8.5pt;
+    color: var(--brand);
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+  h1 {
+    font-family: "TsangerJinKai02", "Source Han Serif SC",
+                 "Noto Serif CJK SC", Georgia, serif;
+    font-size: 28pt;
+    font-weight: 500;
+    color: var(--near-black);
+    line-height: 1.12;
+    margin-bottom: 6pt;
+  }
+  .subtitle {
+    font-size: 12pt;
+    color: var(--olive);
+    line-height: 1.45;
+  }
+  .meta {
+    font-size: 8.5pt;
+    color: var(--stone);
+    text-align: right;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
+  /* ========== METRICS ========== */
+  /* 横向 baseline 布局 —— 和 resume.html 一致的 kami native 姿态。
+     背景透明、无边框，用 typography 本身承担层次，不加容器。 */
+  .metrics {
+    display: flex;
+    gap: 14pt;
+    margin-bottom: 22pt;
+    padding: 6pt 0 8pt 0;
+    border-bottom: 0.3pt dotted var(--border);
+  }
+  .metric {
+    flex: 1;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 5pt;
+    break-inside: avoid;
+  }
+  .metric-value {
+    font-family: "TsangerJinKai02", "Source Han Serif SC", Georgia, serif;
+    font-size: 24pt;
+    font-weight: 500;
+    color: var(--brand);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.3pt;
+  }
+  .metric-label {
+    font-size: 9pt;
+    color: var(--olive);
+    line-height: 1.3;
+  }
+
+  /* ========== SECTIONS ========== */
+  section { margin-bottom: 22pt; break-inside: avoid; }
+  section:last-of-type { margin-bottom: 0; }
+
+  h2 {
+    font-family: "TsangerJinKai02", "Source Han Serif SC", Georgia, serif;
+    font-size: 13pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 6pt;
+    padding-bottom: 3pt;
+    border-bottom: 0.5pt solid var(--brand);
+  }
+  h2 .sub {
+    font-size: 8.5pt;
+    color: var(--stone);
+    font-weight: 400;
+    margin-left: 6pt;
+  }
+
+  p { margin-bottom: 6pt; line-height: 1.45; }
+  p:last-child { margin-bottom: 0; }
+
+  .lead {
+    font-size: 13pt;
+    line-height: 1.55;
+    color: var(--dark-warm);
+    margin-bottom: 18pt;
+  }
+
+  .hl { color: var(--brand); font-weight: 500; }
+
+  /* ========== 2-column grid ========== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18pt;
+  }
+
+  /* ========== 短横线 list（代替默认 bullet） ========== */
+  ul.dash {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.dash li {
+    margin-bottom: 4pt;
+    line-height: 1.45;
+  }
+
+  /* ========== Timeline (横向进度点) ========== */
+  .timeline {
+    display: flex;
+    gap: 12pt;
+    margin-top: 6pt;
+  }
+  .tl-step {
+    flex: 1;
+    break-inside: avoid;
+  }
+  .tl-year {
+    font-family: "TsangerJinKai02", "Source Han Serif SC", Georgia, serif;
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--brand);
+    margin-bottom: 2pt;
+  }
+  .tl-head {
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 2pt;
+  }
+  .tl-body {
+    font-size: 8.5pt;
+    color: var(--olive);
+    line-height: 1.4;
+  }
+
+  /* ========== Tag ========== */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);    /* 实色！不要 rgba */
+    color: var(--brand);
+    font-size: 7.5pt;
+    font-weight: 500;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    letter-spacing: 0.1pt;
+    margin-right: 3pt;
+  }
+
+  /* ========== Callout / 高亮块 ========== */
+  /* 参考 resume.html .team-culture：透明底 + 单左侧 brand 竖条。
+     不做容器也不做圆角，气质是"一条旁注"而不是"一个卡片"。 */
+  .callout {
+    background: transparent;
+    border-left: 1.8pt solid var(--brand);
+    padding: 4pt 0 4pt 14pt;
+    margin: 10pt 0;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: var(--olive);
+    break-inside: avoid;
+  }
+  .callout .hl, .callout .em-brand { color: var(--brand); }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    margin-top: 18pt;
+    padding-top: 6pt;
+    border-top: 0.3pt dotted var(--border);
+    font-size: 8pt;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.3pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <div class="title-block">
+    <div class="eyebrow">公司介绍 · Company Brief</div>
+    <h1>把汽车产业从内燃机拖进电气化</h1>
+    <div class="subtitle">电动车、能源、AI 三条主线，共用一套制造哲学。</div>
+  </div>
+  <div class="meta">
+    公开资料整理<br>
+    2026.04.18<br>
+    公开版
+  </div>
+</div>
+
+<!-- ========== METRICS（可选，3-4 卡最佳） ========== -->
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-value">1.8M</div>
+    <div class="metric-label">全球交付量</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">$96B</div>
+    <div class="metric-label">全年营收</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">4</div>
+    <div class="metric-label">超级工厂数</div>
+  </div>
+  <div class="metric">
+    <div class="metric-value">2003</div>
+    <div class="metric-label">加州成立</div>
+  </div>
+</div>
+
+<!-- ========== LEAD（导语，一段） ========== -->
+<p class="lead">
+  Tesla 不是一家「做电动车的」公司。它是一家<span class="hl">用第一性原理重造制造业</span>的公司，电动车只是最先被重造的那条产业链。能源、储能、Robotaxi、人形机器人 Optimus，都是同一套哲学在不同产业的延伸。
+</p>
+
+<!-- ========== 核心内容（两栏） ========== -->
+<div class="two-col">
+  <section>
+    <h2>业务主线</h2>
+    <p>营收结构高度集中在汽车，但长期叙事在能源与 AI。</p>
+    <ul class="dash">
+      <li><span class="hl">汽车</span>：Model 3/Y/S/X + Cybertruck，$25k-$100k 价格带</li>
+      <li><span class="hl">能源</span>：Powerwall 家储、Megapack 电网储能，增速超汽车</li>
+      <li><span class="hl">AI</span>：FSD 自动驾驶 + Optimus 人形机器人，共用感知栈</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>信念与方法</h2>
+    <p>三条反行业共识的判断，定义了这家公司的长期战略。</p>
+    <ul class="dash">
+      <li>垂直整合到极致：电池、电机、逆变器、软件、充电网络全部自建</li>
+      <li>产品迭代像软件：OTA 每几周发版，8 年前的 Model S 还在收新功能</li>
+      <li>中国是制造锚点：上海工厂本地化率 95%+，2023 年产出占全球 50%+</li>
+    </ul>
+  </section>
+</div>
+
+<!-- ========== Timeline / Roadmap（可选） ========== -->
+<section>
+  <h2>时间线 / 路线图<span class="sub">（适用于方案类文档）</span></h2>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-year">Master Plan 1</div>
+      <div class="tl-head">高端立足</div>
+      <div class="tl-body">2006：先做豪华跑车 Roadster 证明电动车可行，再用利润下沉到 Model S -> 3。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-year">Master Plan 2</div>
+      <div class="tl-head">规模化普及</div>
+      <div class="tl-body">2016：Model 3 大规模量产、储能产品化、光伏屋顶。从小众酷拉到主流选择。</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-year">Master Plan 3</div>
+      <div class="tl-head">能源 × 自动驾驶</div>
+      <div class="tl-body">2023 之后：自动驾驶网络 + Robotaxi + Optimus。车、屋、工厂三个入口都是 AI 终端。</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 关键里程碑（横向时间点） ========== -->
+<section>
+  <h2>关键里程碑<span class="sub">从跑车到万亿市值</span></h2>
+  <ul class="dash" style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 18pt; row-gap: 2pt;">
+    <li><span class="hl">2008</span>：Roadster 交付，第一款量产电动跑车</li>
+    <li><span class="hl">2012</span>：Model S 发布，重新定义豪华 EV</li>
+    <li><span class="hl">2017</span>：Model 3 量产，EV 进入主流价位</li>
+    <li><span class="hl">2020</span>：市值超过丰田，成为全球最贵车企</li>
+    <li><span class="hl">2021</span>：首家市值破万亿美元的汽车公司</li>
+    <li><span class="hl">2023</span>：上海工厂年产 95 万辆，全球领先</li>
+  </ul>
+</section>
+
+<!-- ========== CALLOUT（可选）========== -->
+<div class="callout">
+  「我们不是在做一辆车，我们是在做制造这辆车的机器。」Tesla 团队多次提到的内部共识。理解这句话，就理解为什么它的估值长期按科技公司、而非车企给。
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <span>公开 · 公司介绍</span>
+  <span>kami demo · 1 / 1</span>
+</div>
+
+</body>
+</html>
