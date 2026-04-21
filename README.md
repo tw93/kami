@@ -14,7 +14,7 @@
 
 Kami (紙, かみ) is the Japanese word for paper: the quiet surface on which a finished idea finally lands. Most document design drifts into two failure modes: generic corporate gray, or SaaS hype gradients. Neither reads like something a person actually made with care.
 
-Kami holds one design idea across every format: warm parchment canvas, a single ink-blue accent, serif for authority, sans for utility, editorial whitespace tuned for print. It is part of the `Kaku · Waza · Kami` trilogy: Kaku (書く) writes code, Waza (技) drills habits, Kami (紙) ships documents.
+Kami holds one design idea across every format: warm parchment canvas, a single ink-blue accent, serif for authority, sans for utility, editorial whitespace tuned for print. It is part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) ships documents.
 
 ## See it
 
