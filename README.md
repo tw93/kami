@@ -6,6 +6,8 @@
   <a href="https://github.com/tw93/kami/releases"><img src="https://img.shields.io/github/v/tag/tw93/kami?label=version&style=flat-square" alt="Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
   <a href="https://twitter.com/HiTw93"><img src="https://img.shields.io/badge/follow-Tw93-red?style=flat-square&logo=Twitter" alt="Twitter"></a>
+  <br/><br/>
+  <a href="https://kami.tw93.fun">Design Spec</a> · <a href="https://kami.tw93.fun/index-en.html">English</a>
 </div>
 
 <br/>
