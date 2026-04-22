@@ -32,7 +32,7 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 | Warm Silver | `#b0aea5` | Light text on dark surfaces |
 | Border Cream | `#e8e5da` | Default card border |
 | Border Warm | `#e8e6dc` | Section divider |
-| Ring Warm | `#d1cfc5` | Button hover / focus ring |
+| Ring Warm | `#d1cfc5` | Button hover/focus ring (not for cards) |
 
 **rgba -> solid** (parchment base + ink-blue):
 
@@ -108,6 +108,10 @@ Screen (px) ≈ pt × 1.33.
   border: 0.5pt solid var(--border-cream);
   border-radius: 8pt;
   padding: 16pt 20pt;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);  /* whisper shadow */
 }
 ```
 

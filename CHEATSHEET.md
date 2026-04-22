@@ -2,13 +2,13 @@
 
 一页纸速查。填模板 / 调细节前扫一眼。完整规范在 `references/design.md`。
 
-## 九条铁律
+## 八条规则
 
 1. 页面背景 `#f5f4ed`（parchment），不用纯白
 2. 强调色只有油墨蓝 `#1B365D`
 3. 所有灰**暖调**（yellow-brown undertone），禁冷蓝灰
 4. 英文: serif 通吃标题和正文。中文: 标题 serif，正文 sans。UI 元素都用 sans
-5. Serif 字重固定 500，不用 bold
+5. Serif 正文 400，标题 500，不用合成 bold
 6. 行距：标题 1.1-1.3 / 密排 1.4-1.45 / 阅读 1.5-1.55。禁 1.6+
 7. Tag 背景实色 hex，禁 rgba（WeasyPrint 双层矩形 bug）
 8. 阴影用 ring 或 whisper，不用硬 drop shadow
@@ -32,7 +32,7 @@
 | Warm Silver | `#b0aea5` | 深底上的浅色文字 |
 | Border Cream | `#e8e5da` | 卡片默认边 |
 | Border Warm | `#e8e6dc` | section 分隔 |
-| Ring Warm | `#d1cfc5` | 按钮 hover / focus 环 |
+| Ring Warm | `#d1cfc5` | 按钮 hover / focus 环（不用于卡片） |
 
 **rgba -> 实色对照**（底 parchment + 前景油墨蓝）：
 
@@ -97,6 +97,10 @@
   border: 0.5pt solid var(--border-cream);
   border-radius: 8pt;
   padding: 16pt 20pt;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);  /* whisper shadow */
 }
 ```
 
@@ -113,7 +117,7 @@
 }
 ```
 
-### Section Title（品牌色左侧竖线是签名式样）
+### Section Title（品牌色左侧竖线，标准章节样式）
 
 ```css
 .section-title {

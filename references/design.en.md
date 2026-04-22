@@ -1,12 +1,12 @@
 # Design System
 
-## Manifesto
+## Principles
 
-kami's aesthetic compresses into one sentence: **warm parchment canvas, ink-blue accent, serif carries authority, refuse cool grays and hard shadows**.
+kami's aesthetic compresses into one sentence: **warm parchment canvas, ink-blue accent, serif carries hierarchy, avoid cool grays and hard shadows**.
 
-This is not a UI framework. It is a set of aesthetic constraints for print. It assumes a high-quality document should read like literature, not a dashboard. Every rule's trade-off is the same one: rather than add another option, remove another temptation.
+This is not a UI framework. It is a constraint system for print, designed to keep pages stable, clear, and readable.
 
-**The nine invariants** (each has a real cost — think before violating):
+**The nine invariants** (each has a real cost, think before overriding):
 
 1. Page background parchment `#f5f4ed`, never pure white
 2. Single accent: ink-blue `#1B365D`, no second chromatic color
@@ -104,13 +104,13 @@ Ink Blue `#1B365D` over parchment `#f5f4ed`:
 ### Stacks
 
 ```css
-/* Serif for headlines - Silicon Valley editorial */
+/* Serif for headlines */
 font-family: "Newsreader",             /* Google Fonts - preferred */
              "Source Serif 4", "Source Serif Pro",
              "Charter",                /* macOS system font */
              Georgia, "Times New Roman", serif;
 
-/* Sans for UI elements - Silicon Valley default */
+/* Sans for UI elements */
 font-family: "Inter", "TsangerJinKai02",
              -apple-system, BlinkMacSystemFont,
              "Helvetica Neue", Arial, sans-serif;
@@ -143,10 +143,13 @@ For Chinese documents, see `design.md` for the TsangerJinKai02 + Source Han stac
 
 ### Weight
 
-- **Serif**: locked at 500. Not 400, not 700. Single-weight consistency is part of the design language.
+- **Serif body**: 400 (W04 font file)
+- **Serif headings**: 500 (W05 font file, real bold, not synthetic)
 - **Sans body**: 400 default
 - **Sans labels / small titles**: 500 or 600
 - **Forbidden**: 900 black, 100 thin
+
+**Design principle**: Serif uses only two weights (400/500), no synthetic bold (600/700), maintaining restrained typography.
 
 ### Line-height
 
@@ -472,20 +475,42 @@ For displaying pseudocode or code snippets in slides. More structured than a pla
 
 ### 1. Ring shadow (border-like)
 
+For **button** hover/focus states.
+
 ```css
+/* Button default */
 box-shadow: 0 0 0 1pt var(--ring-warm);
-box-shadow: 0 0 0 1pt var(--ring-deep);   /* hover / active */
+
+/* Button hover/active */
+box-shadow: 0 0 0 1pt var(--ring-deep);
 ```
+
+**Do not use for card hover**: ring shadow is a border replacement. Layering it over an existing border creates three-layer visual stacking (border + ring + offset), which feels digital, not paper-like.
 
 ### 2. Whisper shadow (barely visible lift)
 
+For **card hover** and **featured card** elevation.
+
 ```css
-box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+/* Card hover - mimics paper lifting slightly */
+.card {
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+}
+
+/* Featured card default state */
+.featured-card {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+}
 ```
+
+**Why whisper, not ring**: paper elevation is depth change, not outline change. Whisper shadow is singular, soft, outline-free, matching the paper-like tone.
 
 ### 3. Section-level light/dark alternation
 
-Long docs alternate parchment `#f5f4ed` and `#141413` dark sections. The entire section's ambient light shifts - more dramatic than any shadow.
+Long docs alternate parchment `#f5f4ed` and `#141413` dark sections. This section-level light change creates the strongest contrast.
 
 **Forbidden**: `box-shadow: 0 2px 8px rgba(0,0,0,0.3)` and relatives.
 

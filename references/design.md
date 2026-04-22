@@ -1,12 +1,12 @@
 # Design System
 
-## 设计宣言
+## 设计总则
 
-kami 的审美可以浓缩成一句话：**暖米纸底，油墨蓝点缀，serif 承担权威，拒绝冷蓝灰与硬阴影**。
+kami 的审美可以浓缩成一句话：**暖米纸底，油墨蓝点缀，serif 承担层级，拒绝冷蓝灰与硬阴影**。
 
-这不是一套 UI 框架，是一套印刷品的审美约束。它相信：高质量的文档读起来像文学，不像仪表盘。每条铁律的 trade-off 都是"与其多一个选择，不如少一个诱惑"。
+这不是一套 UI 框架，而是一套面向印刷文档的约束系统，目标是让页面稳定、清楚、可读。
 
-**九条铁律**（每一条都有代价，违反前先想清楚）：
+**九条规则**（每一条都有代价，破例前先想清楚）：
 
 1. 页面背景 parchment `#f5f4ed`，不用纯白
 2. 强调色只有油墨蓝 `#1B365D`，不引入第二种彩色
@@ -146,10 +146,13 @@ font-family: "JetBrains Mono", "Fira Code",
 
 ### 字重规则
 
-- **Serif**：固定 500（不用 400、不用 700）。**单一字重是设计语言的一部分**。
+- **Serif 正文**：400（W04 字体文件）
+- **Serif 标题**：500（W05 字体文件，真实粗体，非合成）
 - **Sans 正文**：400 默认
 - **Sans 标签/标题**：500 或 600
 - **禁止 900 black 或 100 thin**
+
+**设计原则**：Serif 只用两档字重（400/500），不用合成 bold（600/700），保持版面克制。
 
 ### 行距（line-height）三档
 
@@ -435,7 +438,7 @@ ul.dash li::before {
 }
 ```
 
-**间距铁律**：eyebrow → 横线 14px，横线 → H1 **≥ 36px**（下方 gap 是上方 gap 的 2 倍以上，制造视觉锚点）。
+**间距规则**：eyebrow → 横线 14px，横线 → H1 **≥ 36px**（下方 gap 是上方 gap 的 2 倍以上，形成视觉锚点）。
 
 ### Code Card (`.kami-code-card`)
 
@@ -489,24 +492,42 @@ ul.dash li::before {
 
 ### 1. Ring Shadow（边框式阴影）
 
+用于**按钮**的 hover/focus 状态。
+
 ```css
-/* 1pt 环，像 border 但更柔 */
+/* 按钮默认 */
 box-shadow: 0 0 0 1pt var(--ring-warm);
 
-/* hover 时加深 */
+/* 按钮 hover/active 时加深 */
 box-shadow: 0 0 0 1pt var(--ring-deep);
 ```
 
+**不要用于卡片 hover**：ring shadow 本质是边框替代，叠加在已有 border 上会产生三层视觉堆叠（border + ring + offset），感觉数字化，不像纸质。
+
 ### 2. Whisper Shadow（极软投影）
 
+用于**卡片 hover** 和 **featured card** 的浮起效果。
+
 ```css
-/* 几乎看不见的轻微浮起 */
-box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+/* 卡片 hover - 模拟纸张轻微抬起 */
+.card {
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+}
+
+/* Featured card 默认状态 */
+.featured-card {
+  box-shadow: 0 4pt 24pt rgba(0, 0, 0, 0.05);
+}
 ```
+
+**为什么用 whisper 而不是 ring**：纸张浮起是深度变化，不是轮廓变化。Whisper shadow 单一、柔和、无轮廓线，符合纸质感调性。
 
 ### 3. 明暗交替（section 级别）
 
-长文档里 parchment `#f5f4ed` 底 section 和 `#141413` 深色 section 交替，比任何阴影都戏剧化。
+长文档里 parchment `#f5f4ed` 底 section 和 `#141413` 深色 section 交替，对比最明显。
 
 **禁止**：`box-shadow: 0 2px 8px rgba(0,0,0,0.3)` 这类传统硬阴影。
 
