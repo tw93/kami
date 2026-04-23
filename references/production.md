@@ -81,7 +81,7 @@ font-family: "TsangerJinKai02", "Source Han Serif SC",
   }
   @bottom-center {
     content: "{{DOC_NAME}} · {{AUTHOR}}";
-    font-size: 8.5pt; color: #87867f;
+    font-size: 9pt; color: #87867f;
   }
 }
 

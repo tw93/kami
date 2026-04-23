@@ -64,12 +64,13 @@ One-page quick reference. Scan before filling a template or tweaking a detail. F
 | H3 | 12-13 | 500 | 1.30 |
 | Body Lead | 11 | 400 | 1.55 |
 | Body | 9.5-10 | 400 | 1.55 |
-| Body Dense | 9-9.2 | 400 | 1.42 |
-| Caption | 8.5-9 | 400 | 1.45 |
-| Label | 7.5-8 | 600 | 1.35 |
-| Tiny | 7 | 400 | 1.40 |
+| Body Dense | 9-9.4 | 400 | 1.42 |
+| Caption | 9-9.5 | 400 | 1.45 |
+| Label | 9-10 | 600 | 1.35 |
+| Tiny | 9 | 400 | 1.40 |
 
 Screen (px) ≈ pt × 1.33.
+Minimum floor: web text >= 12px, PDF text >= 9pt.
 
 ## Font stacks
 
@@ -150,7 +151,7 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 .tag {
   background: #EEF2F7;            /* 0.08 equivalent */
   color: var(--brand);
-  font-size: 8pt; font-weight: 600;
+  font-size: 9pt; font-weight: 600;
   padding: 1pt 5pt;
   border-radius: 2pt;
   letter-spacing: 0.4pt;

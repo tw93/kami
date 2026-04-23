@@ -149,12 +149,13 @@ Any font-family that may render Chinese must include a CJK fallback, including `
 | H3 | 12-13pt | 500 | 1.30 | Item titles |
 | Body Lead | 11pt | 400 | 1.55 | Intro paragraphs |
 | Body | 9.5-10pt | 400 | 1.55 | Reading body |
-| Body Dense | 9-9.2pt | 400 | 1.42 | Dense body (resume, one-pager) |
-| Caption | 8.5-9pt | 400 | 1.45 | Notes, figure captions |
-| Label | 7.5-8pt | 600 | 1.35 | Small labels, corner tags |
-| Tiny | 7pt | 400 | 1.40 | Footer, minor metadata |
+| Body Dense | 9-9.4pt | 400 | 1.42 | Dense body (resume, one-pager) |
+| Caption | 9-9.5pt | 400 | 1.45 | Notes, figure captions |
+| Label | 9-10pt | 600 | 1.35 | Small labels, corner tags |
+| Tiny | 9pt | 400 | 1.40 | Footer, minor metadata |
 
 **Screen (px)** ≈ pt × 1.33 (9pt ≈ 12px, 18pt ≈ 24px).
+**Minimum floor**: web text >= 12px, PDF text >= 9pt.
 
 ### Weight
 
@@ -283,7 +284,7 @@ Three tiers from weak to strong visual weight:
 .tag {
   background: #EEF2F7;      /* 0.08 solid equivalent */
   color: var(--brand);
-  font-size: 8pt;
+  font-size: 9pt;
   font-weight: 600;
   padding: 1pt 5pt;
   border-radius: 2pt;
@@ -357,7 +358,7 @@ ul.dash li::before {
   border-radius: 6pt;
   padding: 10pt 14pt;
   font-family: var(--mono);
-  font-size: 8.5pt;
+  font-size: 9pt;
   line-height: 1.5;
 }
 ```

@@ -39,7 +39,7 @@ Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [W
   <td align="center" width="25%">
     <a href="assets/demos/demo-kaku.pdf"><img src="assets/demos/demo-kaku.png" alt="Kaku portfolio"></a>
     <br><b>Portfolio</b> · 日本語
-    <br><sub>Kaku 作品集 · 6 ページ</sub>
+    <br><sub>Kaku ターミナル作品集 · 7 ページ</sub>
   </td>
 </tr>
 </table>
@@ -72,7 +72,7 @@ The ZIP is intentionally lightweight: Chinese TsangerJinKai font files are loade
 
 To update: download the same ZIP URL again, click "..." on the kami skill card, choose Replace, and upload the new ZIP.
 
-The skill auto-triggers when you describe what you need, no slash command required. It supports one-pagers, long docs, formal letters, portfolios, resumes, and slides in English and Chinese, with Japanese available as a best-effort path that should be visually QA-checked before delivery.
+The skill auto-triggers from natural requests, no slash command required. It supports one-pagers, long docs, formal letters, portfolios, resumes, and slides in English and Chinese, with Japanese available through a best-effort CJK path plus a final visual QA pass before delivery.
 
 > make a one-pager for my startup / turn this research into a long doc / write a formal letter / make a portfolio showcasing my projects / build me a resume / design a slide deck for my talk / 帮我做一份一页纸 / 帮我排版一份长文档 / 帮我写一封正式信件 / 帮我做一份作品集 / 帮我做一份简历 / 帮我做一套演讲幻灯片
 
