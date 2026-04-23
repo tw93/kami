@@ -12,8 +12,8 @@
 
 Kami (紙, かみ) is a Japanese word for paper: the surface where a finished idea lands. Most AI-generated documents drift into generic corporate gray or inconsistent styling that shifts across sessions, requiring manual cleanup before they can be sent.
 
-Kami is a document design system built for the AI era: one constraint language across six formats, simple enough for agents to execute reliably, strict enough to keep every output coherent and ready to ship.
-It supports English and Chinese directly, with Japanese available via a best-effort CJK template path plus a final visual QA pass before delivery.
+Kami is a document design system for the AI era: one constraint language for six formats, simple for agents to run reliably and strict enough to keep outputs coherent and ready to ship.
+It supports English and Chinese directly, with Japanese via a best-effort CJK template path and a final visual QA pass before delivery.
 
 Part of a trilogy: [Kaku](https://github.com/tw93/Kaku) (書く) writes code, [Waza](https://github.com/tw93/Waza) (技) drills habits, [Kami](https://github.com/tw93/Kami) (紙) delivers documents.
 
@@ -68,9 +68,9 @@ npx skills add tw93/kami -a '*' -g -y
 
 Download [kami.zip](https://cdn.jsdelivr.net/gh/tw93/kami@main/dist/kami.zip), open Customize > Skills > "+" > Create skill, and upload the ZIP directly (no need to unzip).
 
-The ZIP is intentionally lightweight: Chinese TsangerJinKai font files are loaded from local checkout first, then jsDelivr CDN, not bundled inside. If the font renders incorrectly, Claude will download it automatically on the next run.
+The ZIP is intentionally lightweight: TsangerJinKai Chinese fonts load from local checkout first, then jsDelivr CDN, not bundled inside. If rendering is off, Claude downloads them automatically on the next run.
 
-To update: download the same ZIP URL again, click "..." on the kami skill card, choose Replace, and upload the new ZIP.
+To update: download the same ZIP URL, click "..." on the kami skill card, choose Replace, and upload the new ZIP.
 
 The skill auto-triggers from natural requests, no slash command required. It is optimized for English and Chinese across one-pagers, long docs, formal letters, portfolios, resumes, and slides. Japanese is also supported via a best-effort CJK path, with a final visual QA pass before delivery.
 
@@ -112,7 +112,7 @@ Full spec: [design.md](references/design.md). Cheatsheet: [CHEATSHEET.md](CHEATS
 
 I invest in US equities and often ask AI to generate analysis reports. The earliest drafts looked like default Google Docs: plain, inconsistent, and easy to forget. I did not want each document to shift style every time, so I kept refining the typography, palette, and spacing until the page became something I wanted to keep reading.
 
-Later, I was invited to give a talk on my article "The Agent You Don't Know: Principles, Architecture, and Engineering Practice" and needed a slide deck that shared the same visual standard. That iteration pushed the system further: inline SVG diagrams, a unified warm palette, and a tighter editorial rhythm. Over time it covered the document formats I use most, so it became kami, a visual language I can reuse with confidence and send out without hesitation.
+Later, I was invited to present my article "The Agent You Don't Know" and needed a slide deck with the same visual standard. That iteration pushed the system further: inline SVG diagrams, a unified warm palette, and tighter editorial rhythm. Over time it covered my core document formats, so it became kami, a visual language I can reuse with confidence and ship without hesitation.
 
 ## Support
 
