@@ -171,6 +171,20 @@ Every template has meta placeholders in `<head>`. Fill all four before building:
 
 For personal documents (resume/letter/portfolio), the HTML `<meta name="author">` should match the person's name in the content. For non-personal documents (one-pager/long-doc), leave the placeholder as-is and let the build script infer it.
 
+## Step 4.5 · Auto-select output format
+
+Do not ask the user which format to export. Decide from context:
+
+| Signal | Output | Why |
+|---|---|---|
+| Any document request | HTML + PDF | PDF is the default deliverable, HTML is the source |
+| Slides / PPT / deck | HTML + PDF + PPTX | Presentations need a projectable format |
+| "分享" / "发朋友圈" / "share" / "post" / "preview" | + PNG | Social platforms and messaging need images |
+| "嵌入" / "插图" / "embed in another doc" | PNG only | Used as material inside other documents |
+| User explicitly says a format | Follow the user | Explicit request overrides auto-selection |
+
+PDF always ships. PPTX follows slides. PNG follows sharing context. The user should never need to think about formats.
+
 ## Step 5 · Build & verify
 
 ```bash
