@@ -303,6 +303,17 @@
     line-height: 1.55;
     break-inside: avoid;
   }
+  .callout blockquote,
+  .callout .quote {
+    border-left: none;
+    padding-left: 0;
+    margin: 6pt 0;
+    color: var(--olive);
+  }
+  .callout blockquote:first-child,
+  .callout .quote:first-child { margin-top: 0; }
+  .callout blockquote:last-child,
+  .callout .quote:last-child  { margin-bottom: 0; }
   .takeaway {
     background: var(--ivory);
     border-radius: 4pt;
@@ -377,7 +388,7 @@
 </section>
 
 <!-- Chapter 01 -->
-<section>
+<section class="chapter">
   <div class="chapter-num">01 · Executive Summary</div>
   <h1>Executive Summary</h1>
 

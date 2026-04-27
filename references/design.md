@@ -624,3 +624,55 @@ For decks longer than 20 slides, the following rules apply. Each came from real 
 | R8 | Images use `object-fit: contain` + flex centering. Never stretch or crop |
 | R9 | Use `.kami-slide-footer` for page number and deck mark, absolutely positioned to bottom |
 | R10 | Code uses pseudocode style: more comment lines than code lines. Show logic, not syntax |
+
+---
+
+## 9. Horizontal Funnel / Progress Bar Pattern
+
+No dedicated `funnel.html` diagram prototype exists. When generating a horizontal bar chart with external percentage labels (conversion funnel, progress tracker, ranked list), use a three-column grid so the label column is fixed-width and never drifts with bar length.
+
+```css
+.funnel-row {
+  display: grid;
+  grid-template-columns: 80pt 1fr 40pt;  /* label | track | external % */
+  align-items: center;
+  gap: 8pt;
+  margin: 4pt 0;
+}
+.funnel-track {
+  position: relative;
+  height: 18pt;
+  background: var(--border-soft);
+  border-radius: 2pt;
+}
+.funnel-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--brand);
+  border-radius: 2pt;
+}
+.funnel-pct {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--stone);
+  font-size: 9pt;
+}
+```
+
+Example row (77.8% fill):
+
+```html
+<div class="funnel-row">
+  <span>Stage Name</span>
+  <div class="funnel-track">
+    <div class="funnel-fill" style="width:77.8%"></div>
+  </div>
+  <span class="funnel-pct">77.8%</span>
+</div>
+```
+
+Key rules:
+
+- Use the three-column grid, not flex. The third column is always 40pt wide; the percentage never moves regardless of bar length.
+- Color: single `--brand` fill only. No color gradients or per-row hues. Vary opacity (e.g. `opacity: 0.7`) if a visual ranking is needed, not hue.
+- Inline labels inside the bar (count, name) go in an absolutely positioned child inside `.funnel-track`, not in the grid's third column.
