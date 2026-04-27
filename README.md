@@ -73,7 +73,9 @@ Example prompts by language:
 
 **Optional: brand profile**
 
-Create `~/.config/kami/brand.md` to persist your preferences across all documents. Supported fields: `author`, `language`, `logo`, `brand_color`, `company`, `tagline`, `default_doc_type`, `output_format`, `page_size`, `footer_note`, `always_include_toc`. Kami loads it automatically before each render. Explicit prompts override profile defaults.
+Create `~/.config/kami/brand.md` to persist identity, brand, defaults, and writing habits. See [brand.example.md](references/brand.example.md) for a full template.
+
+The file has YAML frontmatter (structured fields: name, role, email, website, GitHub, brand color, language, page size, currency locale, tone, and more) plus a Markdown body for freeform notes. Kami treats it as the lowest-resolution context: applied only when the current request is ambiguous, and always overridable by what the specific document needs. The goal is to feel familiar across your work without making every output look the same.
 
 ## Design
 
