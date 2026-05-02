@@ -15,6 +15,7 @@ Warm parchment canvas, ink-blue accent, serif-led hierarchy, and editorial white
 | `assets/templates/` | 8 document templates in 2 base language families, plus Japanese best-effort mapping | Medium |
 | `assets/demos/` | README showcase demos, regenerate after visual changes | Medium |
 | `scripts/build.py` | PDF / PNG / PPTX build and verification script | Low |
+| `scripts/ensure-fonts.sh` | Multi-source font downloader with retry and validation | Low |
 | `scripts/package-skill.sh` | Claude Desktop ZIP packager, excluding large fonts | Low |
 | `dist/kami.zip` | Claude Desktop ZIP artifact, updated from main | Medium |
 
@@ -114,4 +115,4 @@ Fallback without TsangerJinKai: Source Han Serif SC -> Noto Serif CJK SC -> Song
 English templates use Charter serif.
 Japanese output uses YuMincho as primary with fallback chain: YuMincho -> Hiragino Mincho ProN -> Noto Serif CJK JP -> Source Han Serif JP -> TsangerJinKai02 -> serif. Treat it as best-effort and verify rendering before delivery.
 
-The Claude Desktop ZIP does not bundle TsangerJinKai TTF files. They are about 19MB each and can make upload or execution time out. Before building Chinese documents, the skill checks for missing fonts and downloads them from jsDelivr into `assets/fonts/`. WeasyPrint then uses the existing relative `@font-face` paths without changing HTML.
+The Claude Desktop ZIP does not bundle TsangerJinKai TTF files. They are about 19MB each and can make upload or execution time out. Before building Chinese documents, run `bash scripts/ensure-fonts.sh` to download fonts from official tsanger.cn with CDN mirror fallback. WeasyPrint then uses the existing relative `@font-face` paths without changing HTML.

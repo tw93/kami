@@ -432,10 +432,16 @@ Apply dense mode only when the 4-project layout already overflows. Do not use it
 **Fix**:
 
 ```bash
-# Put .ttf alongside the HTML
+# Preferred: multi-source download script (retries, size validation)
+bash scripts/ensure-fonts.sh
+
+# Or put .ttf alongside the HTML
 cp TsangerJinKai02-W04.ttf workspace/
 
-# Or system install (Linux)
+# macOS fallback font
+brew install --cask font-source-han-serif-sc
+
+# Linux system install
 apt install fonts-noto-cjk
 mkdir -p ~/.fonts && cp *.ttf ~/.fonts/ && fc-cache -f
 ```

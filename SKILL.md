@@ -364,19 +364,13 @@ Font files next to HTML with relative `@font-face` paths is the most stable setu
 
 **Font auto-recovery (Claude Desktop)**
 
-Before building Chinese documents, check font files. If missing, download into `assets/fonts/`:
+Before building Chinese documents, ensure fonts are present. The script tries multiple CDN sources with retry and size validation:
 
 ```bash
-# Check
-test -f assets/fonts/TsangerJinKai02-W04.ttf || {
-  curl -fsSL "https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf" \
-    -o assets/fonts/TsangerJinKai02-W04.ttf
-  curl -fsSL "https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf" \
-    -o assets/fonts/TsangerJinKai02-W05.ttf
-}
+bash scripts/ensure-fonts.sh
 ```
 
-Run once before building. If network is unavailable, WeasyPrint falls back to Source Han Serif SC.
+Run once before building. If all sources fail, the script suggests installing Source Han Serif SC as fallback.
 
 ## Feedback protocol
 

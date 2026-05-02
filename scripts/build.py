@@ -397,7 +397,7 @@ def _check_font_sources(html_path: Path) -> list[str]:
     text = html_path.read_text(encoding="utf-8", errors="replace")
     missing: list[str] = []
     for url in re.findall(r"""url\(["']?([^"')]+)["']?\)""", text):
-        if url.startswith(("http://", "https://", "data:")):
+        if url.startswith(("http://", "https://", "data:", "#")):
             continue
         resolved = (html_path.parent / url).resolve()
         if not resolved.exists():
@@ -424,8 +424,11 @@ def verify_target(name: str, source: str, max_pages: int, src_dir: Path) -> list
 
     # Warn about missing local font files before rendering
     missing_fonts = _check_font_sources(src)
-    for mf in missing_fonts:
-        print(f"  [FONT MISS] {name}: {mf} not found — render will fall back to Source Han Serif SC → Noto Serif CJK SC → Songti SC → Georgia")
+    if missing_fonts:
+        for mf in missing_fonts:
+            print(f"  [FONT MISS] {name}: {mf} not found")
+        print(f"  [FONT MISS] To fix: bash scripts/ensure-fonts.sh")
+        print(f"  [FONT MISS] Or install fallback: brew install --cask font-source-han-serif-sc")
 
     HTML(str(src), base_url=str(src.parent)).write_pdf(str(out))
 
